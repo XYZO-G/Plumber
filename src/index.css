@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #F97316;
+  --color-secondary: #1C1C1C;
+  --color-accent: #60A5FA;
+  --color-bg-dark: #0A0A0A;
+  --color-text-primary: #F5F5F5;
+  --color-text-muted: #9CA3AF;
+  --color-border-dark: #2A2A2A;
+
+  --font-bebas: "Bebas Neue", sans-serif;
+  --font-dm: "DM Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-narrow: 'Arial Narrow', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-dark text-text-primary font-dm antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bebas tracking-tighter uppercase italic;
+  }
+}
+
+@layer utilities {
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 1rem;
+  }
+
+  .skew-btn {
+    transform: skewX(-12deg);
+  }
+  .skew-text {
+    display: inline-block;
+    transform: skewX(12deg);
+  }
+}
+
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.glass-header {
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border-dark);
+}
